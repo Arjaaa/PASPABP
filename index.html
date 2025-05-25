@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/logo.png" type="image/png" />
     <title>Tokoh Islam Lokal Kudus</title>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -10,7 +11,9 @@
     <header>
       <h1>Tokoh Islam Lokal Kudus Pasca Kemerdekaan</h1>
     </header>
-
+    <div class="search-wrapper">
+      <input type="text" id="searchInput" placeholder="Cari tokoh..." onkeyup="searchTokoh()" />
+    </div>
     <div class="container">
       <div class="card">
         <img src="img/felix.png" alt="Ustaz Felix Siauw" />
@@ -21,7 +24,6 @@
         <p><strong>Peran:</strong> Menyebarkan nilai-nilai Islam kepada generasi muda melalui pendekatan modern dan digital. Ia aktif mendorong perubahan gaya hidup Islami di kalangan anak muda urban.</p>
       </div>
 
-      <!-- Tokoh 2 -->
       <div class="card">
         <img src="img/arwani_amin.png" alt="KH. Arwani Amin" />
         <h2>KH. Arwani Amin</h2>
@@ -40,7 +42,6 @@
         <p><strong>Peran:</strong> Menghidupkan tradisi tafsir klasik, memperkenalkan Islam yang cerdas, sejuk, dan bersumber dari pesantren.</p>
       </div>
 
-      <!-- Tokoh 4 -->
       <div class="card">
         <img src="img/kh_yahya.png" alt="KH. Yahya Cholil Staquf" />
         <h2>KH. Yahya Cholil Staquf</h2>
@@ -50,7 +51,6 @@
         <p><strong>Peran:</strong> Membawa Islam Nusantara ke panggung global dan memperkuat peran Islam moderat Indonesia.</p>
       </div>
 
-      <!-- Tokoh 5 -->
       <div class="card">
         <img src="img/gus-mus.png" alt="KH. Ahmad Mustofa Bisri (Gus Mus)" />
         <h2>KH. Ahmad Mustofa Bisri (Gus Mus)</h2>
@@ -60,5 +60,24 @@
         <p><strong>Peran:</strong> Tokoh Islam damai, pelopor Islam Nusantara, aktif dalam dakwah kebudayaan.</p>
       </div>
     </div>
+    <script>
+      function searchTokoh() {
+        const input = document.getElementById("searchInput");
+        const filter = input.value.toLowerCase();
+        const container = document.querySelector(".container");
+        const cards = container.getElementsByClassName("card");
+
+        for (let i = 0; i < cards.length; i++) {
+          const h2 = cards[i].getElementsByTagName("h2")[0];
+          const textValue = h2.textContent || h2.innerText;
+
+          if (textValue.toLowerCase().indexOf(filter) > -1) {
+            cards[i].style.display = "";
+          } else {
+            cards[i].style.display = "none";
+          }
+        }
+      }
+    </script>
   </body>
 </html>

@@ -59,3 +59,32 @@ header {
     margin: 0 auto 1rem;
   }
 }
+.search-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Posisikan ke kanan */
+  padding: 15px 20px 0 20px; /* padding atas dan samping */
+  box-sizing: border-box;
+}
+
+#searchInput {
+  width: 300px;
+  max-width: 100%;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 2px solid #4a90e2;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(74, 144, 226, 0.3);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#searchInput:focus {
+  outline: none;
+  border-color: #357abd;
+  box-shadow: 0 0 8px rgba(53, 122, 189, 0.8);
+}
+
+#searchInput::placeholder {
+  color: #999;
+  font-style: italic;
+}
